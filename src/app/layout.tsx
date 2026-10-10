@@ -65,7 +65,7 @@ export default function RootLayout({
       lang="id"
       className={`${fontDisplay.variable} ${fontBody.variable}`}
     >
-      <body className="antialiased min-h-screen selection:bg-tosca/30 flex flex-col bg-void overflow-x-hidden">
+      <body className="antialiased min-h-screen selection:bg-tosca/30 flex flex-col bg-void">
         <CustomCursor />
         <div className="noise-overlay" />
         <SmoothScroll>
