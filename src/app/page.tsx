@@ -12,8 +12,22 @@ import Security from "@/components/sections/Security";
 import Pricing from "@/components/sections/Pricing";
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aetharix",
+    "url": "https://aetharix.com",
+    "logo": "https://aetharix.com/logo.png",
+    "description": "Infrastruktur Bisnis Ditenagai AI. Ekosistem SaaS modular terpercaya dengan keamanan tingkat bank untuk Enterprise dan Startup modern.",
+  };
+
   return (
     <>
+      {/* Script SEO JSON-LD untuk Google Rich Snippets */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <LoadingScreen />
       
       {/* HERO SECTION */}
@@ -41,9 +55,9 @@ export default function Home() {
           </RevealText>
           
           <RevealText delay={2.9}>
-            <p className="text-mist text-lg md:text-xl max-w-2xl mx-auto font-body font-light">
+            <h2 className="text-mist text-lg md:text-xl max-w-2xl mx-auto font-body font-light">
               Transformasi digital bukan lagi tentang sekadar aplikasi. Aetharix menghadirkan ekosistem SaaS modular dengan skalabilitas tanpa batas untuk Enterprise dan Startup modern.
-            </p>
+            </h2>
           </RevealText>
           
           <RevealText delay={3.1}>
