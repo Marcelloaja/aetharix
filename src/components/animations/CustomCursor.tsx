@@ -54,12 +54,10 @@ export default function CustomCursor() {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  if (!isVisible) return null;
-
   return (
-    <>
+    <div style={{ opacity: isVisible ? 1 : 0, pointerEvents: "none", zIndex: 9999 }}>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-tosca pointer-events-none z-[9999] mix-blend-difference hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-tosca pointer-events-none mix-blend-difference hidden md:block"
         style={{
           x: cursorX,
           y: cursorY,
@@ -82,6 +80,6 @@ export default function CustomCursor() {
           scale: isHovering ? 0 : 1,
         }}
       />
-    </>
+    </div>
   );
 }
