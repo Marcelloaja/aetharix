@@ -4,7 +4,7 @@ import MagneticButton from "@/components/ui/MagneticButton";
 
 export default function Pricing() {
   return (
-    <section id="harga" className="py-32 relative z-10 bg-void mt-10">
+    <section id="harga" className="py-32 relative z-10 bg-void mt-10 overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-blue/10 via-transparent to-transparent pointer-events-none blur-3xl" />
       
