@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --blue: #38BDF8;      /* Soft Sky Blue */
+  --blue-d: #0284C7;
+  --blue-x: #075985;
+  --tosca: #818CF8;     /* Soft Indigo */
+  --tosca-h: #A78BFA;
+  --tosca-d: #4F46E5;
+  --void: #09090B;      /* Zinc 950 (Bukan hitam murni) */
+  --deep: #18181B;      /* Zinc 900 */
+  --chalk: #F4F4F5;     /* Zinc 100 */
+  --mist: #D4D4D8;      /* Zinc 300 (Lebih terang untuk body text) */
+  --dim: #A1A1AA;       /* Zinc 400 */
+  --panel: rgba(255, 255, 255, 0.04);
+  --edge: rgba(255, 255, 255, 0.08);
+  --edge-2: rgba(255, 255, 255, 0.04);
+  
+  --grad: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+  --grad-hot: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-blue: var(--blue);
+  --color-blue-d: var(--blue-d);
+  --color-blue-x: var(--blue-x);
+  --color-tosca: var(--tosca);
+  --color-tosca-h: var(--tosca-h);
+  --color-tosca-d: var(--tosca-d);
+  --color-void: var(--void);
+  --color-deep: var(--deep);
+  --color-chalk: var(--chalk);
+  --color-mist: var(--mist);
+  --color-dim: var(--dim);
+  --color-edge: var(--edge);
+  --color-edge-2: var(--edge-2);
+  --color-panel: var(--panel);
+  
+  --font-display: var(--font-display-custom), system-ui, sans-serif;
+  --font-body: var(--font-body-custom), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dim);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tosca);
+}
+
+@keyframes kilat {
+  to {
+    transform: translateX(130%);
+  }
 }
