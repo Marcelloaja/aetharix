@@ -79,7 +79,7 @@ export default function Products() {
             trigger: containerRef.current,
             pin: true,
             scrub: 1, // Smooth scrub
-            start: "top 15%",
+            start: "top 82px", // Pas di bawah navbar
             end: () => `+=${scrollWidth}`,
           },
         });
@@ -90,8 +90,8 @@ export default function Products() {
   }, []);
 
   return (
-    <section ref={containerRef} id="produk" className="relative z-10 py-24 bg-void overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+    <section ref={containerRef} id="produk" className="relative z-10 py-12 md:py-24 bg-void overflow-hidden flex flex-col justify-center min-h-[calc(100vh-82px)] md:min-h-0">
+      <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-16 w-full">
          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-chalk">
             Ekosistem <span className="bg-clip-text text-transparent bg-[image:var(--grad)]">Super-App</span> Anda.
           </h2>
