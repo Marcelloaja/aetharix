@@ -56,7 +56,7 @@ export default function ScrollyTelling() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative">
         
         {/* Left Side: Text Steps */}
-        <div className="space-y-[40vh] py-[10vh]">
+        <div className="space-y-16 lg:space-y-[40vh] py-10 lg:py-[10vh]">
           <div className="max-w-md step-item">
             <div className="w-12 h-12 rounded-xl bg-blue/10 flex items-center justify-center mb-6 border border-blue/30 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
               <span className="text-blue font-display font-bold text-xl">01</span>
@@ -81,7 +81,7 @@ export default function ScrollyTelling() {
             </p>
           </div>
           
-          <div className="max-w-md pb-[20vh] step-item">
+          <div className="max-w-md pb-10 lg:pb-[20vh] step-item">
             <div className="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-6 border border-pink-500/30 shadow-[0_0_15px_rgba(236,72,153,0.2)]">
               <span className="text-pink-400 font-display font-bold text-xl">03</span>
             </div>
