@@ -20,6 +20,9 @@ export default function Home() {
         <HeroScene />
         
         <div className="relative z-10 space-y-8 max-w-5xl mx-auto text-center mt-[-82px]">
+          {/* Shadow Halus di Belakang Teks agar 100% Terbaca */}
+          <div className="absolute inset-0 bg-void/60 blur-[100px] -z-10 rounded-full scale-150 pointer-events-none" />
+          
           <RevealText delay={2.5}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-tosca/30 bg-tosca/10 text-tosca-h text-xs uppercase font-bold tracking-[0.2em]">
               <span className="w-2 h-2 rounded-full bg-tosca animate-ping"></span>

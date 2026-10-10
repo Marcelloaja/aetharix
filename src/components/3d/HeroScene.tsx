@@ -95,7 +95,7 @@ function CyberCore() {
           color="#7FE9E1" 
           wireframe 
           transparent 
-          opacity={0.8} 
+          opacity={0.35} 
           blending={THREE.AdditiveBlending} 
         />
       </Icosahedron>
@@ -106,7 +106,7 @@ function CyberCore() {
           color="#4F9FD6" 
           wireframe 
           transparent 
-          opacity={0.25} 
+          opacity={0.12} 
           blending={THREE.AdditiveBlending} 
         />
       </Icosahedron>
