@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "marketing": {
+      "root": ".",
+      "framework": "nextjs"
+    },
+    "admin": {
+      "root": "nextjs-admin-dashboard-main",
+      "framework": "nextjs"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": {
+        "service": "admin"
+      }
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": {
+        "service": "admin"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "marketing"
+      }
+    }
+  ]
+}
