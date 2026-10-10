@@ -59,7 +59,7 @@ export default function Pricing() {
           
           {/* Aetharix Infinity (Highlighted) */}
           <div className="p-8 md:p-10 rounded-3xl border border-tosca/50 bg-gradient-to-b from-tosca/10 to-transparent flex flex-col relative shadow-[0_0_50px_rgba(129,140,248,0.15)]">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue to-tosca-h text-void text-xs font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue to-tosca-h text-void text-xs font-bold px-6 py-2 rounded-full uppercase tracking-widest shadow-lg whitespace-nowrap">
               Rekomendasi Utama
             </div>
             
