@@ -103,9 +103,14 @@ export default function Products() {
       <div className="pl-6 md:pl-[max(1.5rem,calc((100vw-80rem)/2))]">
         <div ref={scrollRef} className="flex gap-6 md:gap-8 w-max pb-12">
           {products.map((product, i) => (
-            <div key={i} className="w-[300px] md:w-[450px] shrink-0">
-              <GlassCard className="laser-border h-full p-8 md:p-10 flex flex-col justify-between group bg-deep/90 hover:bg-deep transition-colors">
-                <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-br ${product.color} to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+            <div key={i} className="w-[300px] md:w-[450px] shrink-0 relative rounded-3xl p-[2px] overflow-hidden group/laser">
+              
+              {/* Animasi Laser Berputar */}
+              <div className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_75%,rgba(67,196,188,1)_100%)] animate-[spin_4s_linear_infinite] opacity-60 group-hover/laser:opacity-100 transition-opacity" />
+              
+              {/* Card Utama (Menutupi laser, menyisakan border) */}
+              <GlassCard className="h-full w-full relative z-10 p-8 md:p-10 flex flex-col justify-between group overflow-hidden bg-void/95 hover:bg-void transition-colors border-none rounded-[22px]">
+                <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-br ${product.color} to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
                 
                 <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 z-10 relative shadow-xl">
                   <svg className="w-7 h-7 text-chalk" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
