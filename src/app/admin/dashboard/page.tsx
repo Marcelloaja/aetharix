@@ -1,6 +1,8 @@
 import { auth, signOut } from "@/auth";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   const session = await auth();
   
