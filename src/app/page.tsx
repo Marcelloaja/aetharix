@@ -12,7 +12,16 @@ import Pricing from "@/components/sections/Pricing";
 
 export default function Home() {
   const integrations = [
-    "AWS", "Google Cloud", "OpenAI", "Stripe", "Midtrans", "Xendit", "Slack", "Discord", "Datadog", "Vercel"
+    { name: "AWS", color: "hover:shadow-[0_0_20px_-5px_rgba(255,153,0,0.5)]", dot: "bg-[#FF9900]", text: "hover:text-[#FF9900]" },
+    { name: "Google Cloud", color: "hover:shadow-[0_0_20px_-5px_rgba(66,133,244,0.5)]", dot: "bg-[#4285F4]", text: "hover:text-[#4285F4]" },
+    { name: "OpenAI", color: "hover:shadow-[0_0_20px_-5px_rgba(16,163,127,0.5)]", dot: "bg-[#10a37f]", text: "hover:text-[#10a37f]" },
+    { name: "Stripe", color: "hover:shadow-[0_0_20px_-5px_rgba(99,91,255,0.5)]", dot: "bg-[#635BFF]", text: "hover:text-[#635BFF]" },
+    { name: "Midtrans", color: "hover:shadow-[0_0_20px_-5px_rgba(0,165,224,0.5)]", dot: "bg-[#00A5E0]", text: "hover:text-[#00A5E0]" },
+    { name: "Xendit", color: "hover:shadow-[0_0_20px_-5px_rgba(0,102,255,0.5)]", dot: "bg-[#0066FF]", text: "hover:text-[#0066FF]" },
+    { name: "Slack", color: "hover:shadow-[0_0_20px_-5px_rgba(224,30,90,0.5)]", dot: "bg-[#E01E5A]", text: "hover:text-[#E01E5A]" },
+    { name: "Discord", color: "hover:shadow-[0_0_20px_-5px_rgba(88,101,242,0.5)]", dot: "bg-[#5865F2]", text: "hover:text-[#5865F2]" },
+    { name: "Datadog", color: "hover:shadow-[0_0_20px_-5px_rgba(99,44,166,0.5)]", dot: "bg-[#632CA6]", text: "hover:text-[#632CA6]" },
+    { name: "Vercel", color: "hover:shadow-[0_0_20px_-5px_rgba(255,255,255,0.5)]", dot: "bg-white", text: "hover:text-white" }
   ];
 
   return (
