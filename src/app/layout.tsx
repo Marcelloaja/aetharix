@@ -71,6 +71,18 @@ export default function RootLayout({
       className={`${fontDisplay.variable} ${fontBody.variable}`}
     >
       <body className="antialiased min-h-screen selection:bg-tosca/30 flex flex-col bg-void">
+        {/* Mencegah crash Next.js (Error Boundary) akibat ResizeObserver loop dari GSAP pinning di HP */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('error', function(e) {
+                if (e.message === 'ResizeObserver loop limit exceeded' || e.message === 'ResizeObserver loop completed with undelivered notifications.') {
+                  e.stopImmediatePropagation();
+                }
+              });
+            `,
+          }}
+        />
         <CustomCursor />
         <div className="noise-overlay" />
         <SmoothScroll>
