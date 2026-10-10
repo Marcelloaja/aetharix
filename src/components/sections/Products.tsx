@@ -7,8 +7,8 @@ import GlassCard from "@/components/ui/GlassCard";
 
 const products = [
   {
-    title: "Aetharix Anomaly AI",
-    description: "Sistem deteksi anomali transaksi keuangan PKK RT/RW berbasis Machine Learning (Isolation Forest) yang terintegrasi penuh antara Web dan Mobile App.",
+    title: "Aetharix Anomaly",
+    description: "Deteksi anomali transaksi keuangan RT/RW dengan AI (Isolation Forest). Terintegrasi penuh di Web & Mobile.",
     color: "from-red-500/20",
     icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z", // Warning / Alert icon
   },
