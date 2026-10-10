@@ -67,6 +67,7 @@ export default function RootLayout({
     >
       <body className="antialiased min-h-screen selection:bg-tosca/30 flex flex-col bg-void">
         <CustomCursor />
+        <div className="noise-overlay" />
         <SmoothScroll>
           <Navbar />
           <main className="flex-1 mt-[82px]">

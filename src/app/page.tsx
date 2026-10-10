@@ -2,6 +2,7 @@ import Link from "next/link";
 import MagneticButton from "@/components/ui/MagneticButton";
 import LoadingScreen from "@/components/animations/LoadingScreen";
 import RevealText from "@/components/animations/RevealText";
+import ScrollRevealText from "@/components/animations/ScrollRevealText";
 import HeroScene from "@/components/3d/HeroScene";
 import BentoIntegrations from "@/components/sections/BentoIntegrations";
 import Products from "@/components/sections/Products";
@@ -66,6 +67,8 @@ export default function Home() {
       </div>
       
       {/* SECTIONS */}
+      <ScrollRevealText text="Tidak perlu merakit sistem dari nol. Ekosistem siap pakai ini dirancang khusus untuk memotong waktu pengembangan Anda hingga 80%." />
+
       <BentoIntegrations />
 
       <Products />

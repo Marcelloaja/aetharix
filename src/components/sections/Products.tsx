@@ -104,7 +104,7 @@ export default function Products() {
         <div ref={scrollRef} className="flex gap-6 md:gap-8 w-max pb-12">
           {products.map((product, i) => (
             <div key={i} className="w-[300px] md:w-[450px] shrink-0">
-              <GlassCard className="h-full p-8 md:p-10 flex flex-col justify-between group overflow-hidden bg-deep/50 hover:bg-deep transition-colors border-edge-2">
+              <GlassCard className="laser-border h-full p-8 md:p-10 flex flex-col justify-between group bg-deep/90 hover:bg-deep transition-colors">
                 <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-br ${product.color} to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
                 
                 <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-10 z-10 relative shadow-xl">
