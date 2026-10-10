@@ -1,22 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
+import { authenticate } from "./actions";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    setTimeout(() => {
-      window.location.href = "/admin";
-    }, 1500);
-  };
+  const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined);
 
   return (
     <main className="min-h-screen pt-[80px] flex items-center justify-center relative overflow-hidden bg-void">
@@ -57,13 +47,12 @@ export default function LoginPage() {
             <div className="h-px bg-edge-2 flex-1" />
           </div>
 
-          <form onSubmit={handleLogin} className="flex flex-col gap-5">
+          <form action={formAction} className="flex flex-col gap-5">
             <div>
               <label className="block text-xs font-bold text-mist mb-2">Work Email</label>
               <input 
+                name="email"
                 type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-void/30 border border-edge-2 rounded-lg px-4 py-2.5 text-chalk placeholder-dim focus:outline-none focus:border-tosca focus:ring-1 focus:ring-tosca transition-all font-body text-sm"
                 placeholder="name@company.com"
@@ -76,26 +65,31 @@ export default function LoginPage() {
                 <Link href="#" className="text-xs text-blue hover:text-tosca transition-colors font-body">Forgot password?</Link>
               </div>
               <input 
+                name="password"
                 type="password" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 required
                 className="w-full bg-void/30 border border-edge-2 rounded-lg px-4 py-2.5 text-chalk placeholder-dim focus:outline-none focus:border-tosca focus:ring-1 focus:ring-tosca transition-all font-body text-sm"
                 placeholder="••••••••"
               />
             </div>
 
-            <MagneticButton className="w-full mt-2 !rounded-lg !py-3 flex items-center justify-center gap-2 font-body text-sm">
-              {isLoading ? (
+            {errorMessage && (
+              <div className="p-3 rounded bg-red-500/10 border border-red-500/30 text-red-400 text-xs text-center font-bold">
+                {errorMessage}
+              </div>
+            )}
+
+            <MagneticButton className="w-full mt-2 !rounded-lg !py-3 flex items-center justify-center gap-2 font-body text-sm" disabled={isPending}>
+              {isPending ? (
                 <>
                   <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-void" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Signing in...
+                  Authenticating...
                 </>
               ) : (
-                "Sign In"
+                "Sign In Securely"
               )}
             </MagneticButton>
           </form>
