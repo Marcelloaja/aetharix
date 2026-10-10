@@ -9,7 +9,7 @@ import * as THREE from "three";
 function GalaxySwarm() {
   const ref = useRef<THREE.Points>(null);
   
-  const particleCount = 4000;
+  const particleCount = 1500; // Dikurangi dari 4000 agar tidak lag di HP
   
   const positions = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
@@ -112,14 +112,14 @@ function CyberCore() {
       </Icosahedron>
       
       {/* Orbit Rings (Data streams) */}
-      <Float speed={4} rotationIntensity={2} floatIntensity={1}>
-        <Torus args={[3.5, 0.015, 16, 100]} rotation={[Math.PI/2.5, 0, 0]}>
+      <Float speed={2} rotationIntensity={1} floatIntensity={1}>
+        <Torus args={[3.5, 0.015, 8, 48]} rotation={[Math.PI/2.5, 0, 0]}>
            <meshBasicMaterial color="#ffffff" transparent opacity={0.6} blending={THREE.AdditiveBlending} />
         </Torus>
       </Float>
       
-      <Float speed={2.5} rotationIntensity={3} floatIntensity={2}>
-        <Torus args={[4.5, 0.01, 16, 100]} rotation={[Math.PI/3, Math.PI/4, 0]}>
+      <Float speed={1.5} rotationIntensity={1.5} floatIntensity={1}>
+        <Torus args={[4.5, 0.01, 8, 48]} rotation={[Math.PI/3, Math.PI/4, 0]}>
            <meshBasicMaterial color="#43C4BC" transparent opacity={0.4} blending={THREE.AdditiveBlending} />
         </Torus>
       </Float>
@@ -130,13 +130,13 @@ function CyberCore() {
 export default function HeroScene() {
   return (
     <div className="absolute inset-0 z-0 opacity-80 pointer-events-auto">
-      <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 10], fov: 45 }} dpr={[1, 1.5]}>
         {/* Latar Belakang Gelap (Fog) agar memudar di ujung */}
         <fog attach="fog" args={["#04101A", 8, 20]} />
         
         {/* Ribuan partikel menyala (Debu Bintang) */}
-        <Sparkles count={1500} scale={15} size={1.5} speed={0.3} opacity={0.6} color="#4F9FD6" />
-        <Sparkles count={500} scale={10} size={2} speed={0.6} opacity={0.8} color="#7FE9E1" />
+        <Sparkles count={500} scale={15} size={1.5} speed={0.3} opacity={0.6} color="#4F9FD6" />
+        <Sparkles count={200} scale={10} size={2} speed={0.6} opacity={0.8} color="#7FE9E1" />
         
         {/* Core & Galaxy */}
         <CyberCore />

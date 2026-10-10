@@ -106,7 +106,7 @@ export default function Products() {
             <div key={i} className="w-[300px] md:w-[450px] shrink-0 relative rounded-3xl p-[2px] overflow-hidden group/laser">
               
               {/* Animasi Laser Berputar */}
-              <div className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_75%,rgba(67,196,188,1)_100%)] animate-[spin_4s_linear_infinite] opacity-60 group-hover/laser:opacity-100 transition-opacity" />
+              <div className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_75%,rgba(67,196,188,1)_100%)] animate-[spin_4s_linear_infinite] opacity-60 group-hover/laser:opacity-100 transition-opacity will-change-transform" />
               
               {/* Card Utama (Menutupi laser, menyisakan border) */}
               <GlassCard className="h-full w-full relative z-10 p-8 md:p-10 flex flex-col justify-between group overflow-hidden bg-void/95 hover:bg-void transition-colors border-none rounded-[22px]">

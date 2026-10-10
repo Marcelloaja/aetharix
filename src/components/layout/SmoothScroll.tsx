@@ -11,7 +11,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       orientation: "vertical",
       gestureOrientation: "vertical",
       wheelMultiplier: 1,
-      touchMultiplier: 2,
+      syncTouch: false, // Penting: Biarkan scroll HP menggunakan native scroll bawaan agar tidak lag
     });
 
     function raf(time: number) {
