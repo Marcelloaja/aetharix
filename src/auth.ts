@@ -15,25 +15,7 @@ declare module 'next-auth' {
   }
 }
 
-// --- MOCK DATABASE TINGKAT TINGGI ---
-// Dalam produksi nyata, ini akan dipanggil dari PostgreSQL / Prisma.
-// Password dienkripsi menggunakan Bcrypt dengan 10 salt rounds. (password: "password123")
-const DUMMY_USERS = [
-  {
-    id: 'admin-1',
-    name: 'Administrator',
-    email: 'admin@aetharix.com',
-    passwordHash: '$2a$10$L1E1m6vXQ.rGfW3n4c8Sbe8XW9Q.H8.Wn6Q4fH8XW9Q.H8.Wn6Q4f', 
-    role: 'ADMIN'
-  },
-  {
-    id: 'client-1',
-    name: 'Perusahaan Klien',
-    email: 'client@aetharix.com',
-    passwordHash: '$2a$10$L1E1m6vXQ.rGfW3n4c8Sbe8XW9Q.H8.Wn6Q4fH8XW9Q.H8.Wn6Q4f',
-    role: 'CLIENT'
-  }
-];
+import { prisma } from "@/lib/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -46,12 +28,31 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
-        const user = DUMMY_USERS.find(u => u.email === credentials.email);
+        const email = credentials.email as string;
+        const passwordInput = credentials.password as string;
+
+        // SEEDING OTOMATIS: Jika ini pertama kali aplikasi jalan dan db kosong
+        const existingUsers = await prisma.user.count();
+        if (existingUsers === 0) {
+          // Buat akun Admin & Client secara otomatis (hanya untuk testing lokal)
+          const hashed = await bcrypt.hash("password123", 10);
+          await prisma.user.createMany({
+            data: [
+              { name: "Administrator", email: "admin@aetharix.com", passwordHash: hashed, role: "ADMIN" },
+              { name: "Perusahaan Klien", email: "client@aetharix.com", passwordHash: hashed, role: "CLIENT" }
+            ]
+          });
+        }
+
+        // Cari user di Database
+        const user = await prisma.user.findUnique({
+          where: { email }
+        });
+
         if (!user) return null;
 
-        // Bypass bcrypt sementara untuk testing mudah karena ini Dummy DB
-        // Di prod, WAJIB: await bcrypt.compare(credentials.password, user.passwordHash)
-        const passwordsMatch = credentials.password === "password123";
+        // Validasi password enkripsi
+        const passwordsMatch = await bcrypt.compare(passwordInput, user.passwordHash);
 
         if (passwordsMatch) {
           return { id: user.id, name: user.name, email: user.email, role: user.role };
