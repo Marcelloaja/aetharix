@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/client/', '/api/'],
     },
-    sitemap: 'https://aetharix.com/sitemap.xml',
+    sitemap: 'https://aetharix.vercel.app/sitemap.xml',
   };
 }

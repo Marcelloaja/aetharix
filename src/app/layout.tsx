@@ -17,7 +17,7 @@ const fontBody = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aetharix.com"),
+  metadataBase: new URL("https://aetharix.vercel.app"),
   title: "AETHARIX | Infrastruktur Bisnis. Ditenagai AI.",
   description: "Aetharix menghadirkan ekosistem SaaS modular dengan skalabilitas tanpa batas untuk Enterprise dan Startup modern. We build what's next.",
   openGraph: {
