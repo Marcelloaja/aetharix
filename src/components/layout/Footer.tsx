@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import VisitorCounter from "./VisitorCounter";
 
 export default function Footer() {
   return (
@@ -34,7 +35,12 @@ export default function Footer() {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-edge-2 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-dim">
+      {/* Realtime Website Visitor Analytics Counter */}
+      <div className="max-w-7xl mx-auto px-6">
+        <VisitorCounter />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-edge-2 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-dim">
         <span>© 2026 Aetharix. All rights reserved.</span>
         <span className="font-bold text-chalk">Premium SaaS Hub</span>
       </div>
